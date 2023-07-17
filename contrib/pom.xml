@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.jdom</groupId>
+        <artifactId>jdom-project</artifactId>
+        <version>1.1.3-atlassian-2</version>
+    </parent>
+
+    <artifactId>jdom-contrib</artifactId>
+
+    <properties>
+    </properties>
+
+    <build>
+        <sourceDirectory>src/java</sourceDirectory>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.jdom</groupId>
+            <artifactId>jdom</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>regexp</groupId>
+            <artifactId>regexp</artifactId>
+            <version>1.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jakarta-regexp-1.1.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>isorelax</groupId>
+            <artifactId>isorelax</artifactId>
+            <version>20030108</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/isorelax.jar</systemPath>
+        </dependency>
+
+
+    </dependencies>
+
+
+</project>

@@ -8,3 +8,5 @@ build
 /.settings
 /dist.*
 /dist-*
+target
+.idea
