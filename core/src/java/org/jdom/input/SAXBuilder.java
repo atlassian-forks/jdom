@@ -758,16 +758,8 @@ public class SAXBuilder {
     private void setFeaturesAndProperties(XMLReader parser,
                                           boolean coreFeatures)
                                                         throws JDOMException {
-        // Set any user-specified features on the parser.
-        Iterator iter = features.keySet().iterator();
-        while (iter.hasNext()) {
-            String  name  = (String)iter.next();
-            Boolean value = (Boolean)features.get(name);
-            internalSetFeature(parser, name, value.booleanValue(), name);
-        }
-
         // Set any user-specified properties on the parser.
-        iter = properties.keySet().iterator();
+        Iterator iter = properties.keySet().iterator();
         while (iter.hasNext()) {
             String name = (String)iter.next();
             internalSetProperty(parser, name, properties.get(name), name);
@@ -810,6 +802,14 @@ public class SAXBuilder {
         }
         catch (SAXNotRecognizedException e) { /* Ignore... */ }
         catch (SAXNotSupportedException  e) { /* Ignore... */ }
+
+        // Set any user-specified features on the parser.
+        iter = features.keySet().iterator();
+        while (iter.hasNext()) {
+            String  name  = (String)iter.next();
+            Boolean value = (Boolean)features.get(name);
+            internalSetFeature(parser, name, value.booleanValue(), name);
+        }
     }
 
     /**

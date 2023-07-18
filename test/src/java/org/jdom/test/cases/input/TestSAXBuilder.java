@@ -700,6 +700,25 @@ extends junit.framework.TestCase
 //		}
 //	}
 
+	public void testSetExternalFeature() {
+		String feature = "http://xml.org/sax/features/external-general-entities";
+		MySAXBuilder sb = new MySAXBuilder();
+		try {
+			sb.setFeature(feature, true);
+			XMLReader reader = sb.createParser();
+			assertNotNull(reader);
+			assertTrue(reader.getFeature(feature));
+			sb.setFeature(feature, false);
+			reader = sb.createParser();
+			assertNotNull(reader);
+			assertFalse(reader.getFeature(feature));
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail("Could not create parser: " + e.getMessage());
+		}
+	}
+
 	public void testSetProperty() {
 		LexicalHandler lh = new LexicalHandler() {
 
