@@ -810,6 +810,14 @@ public class SAXBuilder {
         }
         catch (SAXNotRecognizedException e) { /* Ignore... */ }
         catch (SAXNotSupportedException  e) { /* Ignore... */ }
+
+        // Set any user-specified features on the parser.
+        iter = features.keySet().iterator();
+        while (iter.hasNext()) {
+            String  name  = (String)iter.next();
+            Boolean value = (Boolean)features.get(name);
+            internalSetFeature(parser, name, value.booleanValue(), name);
+        }
     }
 
     /**
